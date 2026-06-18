@@ -55,7 +55,36 @@
       margin-bottom: 0.5rem;
       padding-left: 0.75rem;
     }
+
+    /* Mobile Drawer logic */
+    @media (max-width: 767px) {
+      #sidebar {
+        position: fixed;
+        left: -256px;
+        top: 0;
+        bottom: 0;
+        z-index: 50;
+        transition: left 0.3s ease;
+      }
+      body.sidebar-active #sidebar {
+        left: 0;
+      }
+      #sidebar-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 40;
+      }
+      body.sidebar-active #sidebar-overlay {
+        display: block;
+      }
+    }
   </style>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#065f46">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 <body class="text-slate-800 antialiased h-screen overflow-hidden relative">
 
@@ -96,6 +125,7 @@
 </div>
 
 <!-- CONTAINER DO APP -->
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 <div id="app-container" class="hidden w-full h-full flex flex-col md:flex-row overflow-hidden">
 
   <!-- HEADER MOBILE -->
@@ -693,6 +723,8 @@
       btn.classList.add('active');
       btn.classList.remove('text-stone-500');
     }
+    if(window.innerWidth < 768) document.body.classList.remove('sidebar-active');
+  }
     if(window.innerWidth < 768) document.body.classList.remove('sidebar-active');
   }
 

@@ -1,0 +1,17 @@
+{
+  "name": "Tropa IMPISA 44/RJ",
+  "short_name": "IMPISA 44",
+  "description": "Sistema de Gestão - Tropa IMPISA 44/RJ",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#f4efe6",
+  "theme_color": "#065f46",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/1164/1164620.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
